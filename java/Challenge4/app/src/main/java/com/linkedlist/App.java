@@ -7,16 +7,23 @@ public class App {
 
 
     public static void main(String[] args) {
+//        LinkedList<Integer> newList = new LinkedList();
         LinkedList<Integer> newList = new LinkedList();
         newList.insert(1);
         newList.insert(3);
         newList.insert(4);
         newList.insert(8);
 
+        newList.append(7);
+
+//        newList.insertBefore(4,5);
 
 
-        System.out.println(newList.includes(2));
-        System.out.println(newList.tostring());
+
+        System.out.println(newList.includes(-3));
+        System.out.println(newList.toString());
+        newList.ds();
+
 
     }
 
