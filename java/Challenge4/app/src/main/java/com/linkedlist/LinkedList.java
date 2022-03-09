@@ -76,6 +76,7 @@ public class LinkedList<T> {
 
 
         public void insertAfter(T ref, T addThis){
+        //https://www.geeksforgeeks.org/linked-list-set-2-inserting-a-node/
 
             Node<T> pointer = this.head;
 
