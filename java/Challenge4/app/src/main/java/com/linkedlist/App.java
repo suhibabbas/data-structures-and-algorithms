@@ -21,7 +21,10 @@ public class App {
 //        System.out.println(newList.includes(-3));
         System.out.println(newList.toString());
 
-        newList.test(-5);
+        newList.kth(3);
+        newList.kth(0);
+        newList.kth(-5);
+        newList.kth(8);
     }
 
 }
