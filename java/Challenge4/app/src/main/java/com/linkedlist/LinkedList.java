@@ -89,7 +89,7 @@ public class LinkedList<T> {
             }
         }
 
-        public void test(int num) {
+        public void kth(int num) {
             Node<T> pointer = this.head;
 
             try {
