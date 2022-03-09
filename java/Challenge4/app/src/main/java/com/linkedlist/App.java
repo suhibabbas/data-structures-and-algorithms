@@ -16,15 +16,12 @@ public class App {
 
         newList.append(7);
 
+        newList.insertAfter(8,5);
 //        newList.insertBefore(4,5);
-
-
-
-        System.out.println(newList.includes(-3));
+//        System.out.println(newList.includes(-3));
         System.out.println(newList.toString());
-        newList.ds();
 
-
+        newList.test(-5);
     }
 
 }
