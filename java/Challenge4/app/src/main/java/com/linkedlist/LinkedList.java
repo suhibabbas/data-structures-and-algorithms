@@ -87,10 +87,22 @@ public class LinkedList<T> {
                 }
                 pointer =pointer.next;
             }
+        }
+
+        public void test(int num) {
+            Node<T> pointer = this.head;
+
+            try {
+                for (int i = 0; i < Math.abs(num); i++) {
+                    pointer = pointer.next;
+                }
+                System.out.println(pointer.value);
+
+            }catch (NullPointerException e){
+                System.out.println(e.toString());
+            }
 
         }
-        public void ds(){
-            System.out.println(this.head.value);
-        }
+
     }
 
