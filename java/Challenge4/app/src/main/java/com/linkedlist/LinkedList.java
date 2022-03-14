@@ -1,16 +1,16 @@
 package com.linkedlist;
 
 public class LinkedList<T> {
-    Node head;
+    Node<T> head;
     public LinkedList(){
         this.head = null;
     }
 
-    public void insert(T v){
-        Node<T> newNode = new Node(v);
-        newNode.next = this.head;
-        this.head = newNode;
+    public Node<T> getHead() {
+        return head;
     }
+
+
 
     public Boolean includes(T v){
         Node<T> pointer = this.head;
@@ -40,6 +40,13 @@ public class LinkedList<T> {
 
     public void append(T v){
         Node<T> pointer =this.head;
+
+        if(pointer == null){
+            Node<T> newNode = new Node<T>(v);
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+
         while (pointer != null){
             if(pointer.next == null){
                 Node<T> newNode = new Node<T>(v);
@@ -74,7 +81,6 @@ public class LinkedList<T> {
 //           }
 //        }
 
-
         public void insertAfter(T ref, T addThis){
         //https://www.geeksforgeeks.org/linked-list-set-2-inserting-a-node/
 
@@ -100,10 +106,68 @@ public class LinkedList<T> {
                 System.out.println(pointer.value);
 
             }catch (NullPointerException e){
-                System.out.println(e.toString());
+                System.err.println(e.getMessage());
             }
 
         }
 
+        public void insert(T v){
+        Node<T> newNode = new Node<T>(v);
+        newNode.next = this.head;
+        this.head = newNode;
+    }
+
+        public void zip(LinkedList<Integer> list1, LinkedList<Integer> list2){
+            Node listOnePointer = list1.head;
+            Node listTwoPointer = list2.head;
+
+
+            Node<T> newNode = new Node(listOnePointer.value);
+            newNode.next = this.head;
+            this.head = newNode;
+            Node<T> pointer =this.head;
+
+            listOnePointer = listOnePointer.next;
+
+            try {
+                while(listOnePointer != null || listTwoPointer != null){
+
+                    while (true){
+                        if(pointer.next == null){
+                            if(listTwoPointer ==null){
+                                break;
+                            }
+                            Node<T> node2 = new Node(listTwoPointer.value);
+                            pointer.next =node2;
+                            node2.next=null;
+                            break;
+                        }
+                        pointer=pointer.next;
+                    }
+
+                    while (true){
+                        if(pointer.next == null){
+                            if(listOnePointer == null){
+                                break;
+                            }
+                            Node<T> node1 = new Node(listOnePointer.value);
+                            pointer.next =node1;
+                            node1.next=null;
+                            break;
+                        }
+                        pointer=pointer.next;
+                    }
+                    if(listOnePointer!= null){
+                        listOnePointer =listOnePointer.next;
+                    }
+                    if(listTwoPointer != null){
+                        listTwoPointer = listTwoPointer.next;
+                    }
+                }
+            }catch (NullPointerException exception){
+                System.err.println(exception.getMessage());
+            }
+
+        }
     }
 
