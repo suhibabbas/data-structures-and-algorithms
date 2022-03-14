@@ -7,24 +7,40 @@ public class App {
 
 
     public static void main(String[] args) {
-//        LinkedList<Integer> newList = new LinkedList();
-        LinkedList<Integer> newList = new LinkedList();
-        newList.insert(1);
-        newList.insert(3);
-        newList.insert(4);
-        newList.insert(8);
 
-        newList.append(7);
+        LinkedList<Integer> list1 = new LinkedList();
+        list1.insert(1);
+        list1.insert(3);
+        list1.insert(4);
+        list1.insert(8);
 
-        newList.insertAfter(8,5);
-//        newList.insertBefore(4,5);
+        LinkedList<Integer> list2 = new LinkedList();
+        list2.insert(2);
+        list2.append(5);
+//        list2.append(7);
+//        list2.append(9);
+//        list2.append(4);
+
+
+//        newList.insertAfter(8,5);
 //        System.out.println(newList.includes(-3));
-        System.out.println(newList.toString());
 
-        newList.kth(3);
-        newList.kth(0);
-        newList.kth(-5);
-        newList.kth(8);
+//        newList1.kth(3);
+//        newList1.kth(0);
+//        newList1.kth(-5);
+//        newList1.kth(8);
+
+        System.out.println(list1.toString());
+        System.out.println(list2.toString());
+        LinkedList<Integer> mergeList = new LinkedList<>();
+
+        mergeList.zip(list1,list2);
+        System.out.println(mergeList.toString());
+
+
+
+
+
     }
 
 }
