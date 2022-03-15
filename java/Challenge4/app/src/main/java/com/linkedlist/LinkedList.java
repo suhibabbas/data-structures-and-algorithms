@@ -169,5 +169,19 @@ public class LinkedList<T> {
             }
 
         }
+
+        public void  reverse(LinkedList<T> list){
+
+        Node listPinter = list.head;
+
+        while (listPinter != null){
+            Node<T> newNode = new Node(listPinter.value);
+            newNode.next = this.head;
+            this.head = newNode;
+
+            listPinter = listPinter.next;
+        }
+
+        }
     }
 
