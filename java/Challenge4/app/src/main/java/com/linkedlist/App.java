@@ -37,6 +37,11 @@ public class App {
         mergeList.zip(list1,list2);
         System.out.println(mergeList.toString());
 
+        LinkedList<Integer> reversList = new LinkedList<>();
+
+        reversList.reverse(list1);
+        System.out.println(reversList);
+
 
 
 
