@@ -31,10 +31,10 @@ public class App {
         queue.add(new QueueNode("Ahmmad"));
 
         System.out.println(queue);
-
-        System.out.println(queue.remove());
-
         System.out.println(queue.peek());
+        queue.remove();
+
+
         System.out.println(queue);
 
 
