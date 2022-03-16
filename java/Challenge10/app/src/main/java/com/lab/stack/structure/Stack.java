@@ -14,26 +14,25 @@ public class Stack {
     }
 
     public StackNode push(StackNode stackNode){
-        //check if stack is empty
         if (!empty()) {
-            // make stack node point to what top is pointing to
             stackNode.setNext(top);
+
         }
-        // make top point to stack node
-        top = stackNode;
+        top=stackNode;
         return stackNode;
 
     }
 
     public StackNode pop(){
+        StackNode r;
 
         if(empty()){
             throw new EmptyStackException();
-        }else {
-           return top = top.getNext();
+        }else{
+            r = top;
+            top = top.getNext();
+            return r;
         }
-
-
     }
 
     public StackNode peek(){
@@ -45,18 +44,17 @@ public class Stack {
 
     @Override
     public String toString() {
-        StackNode p = this.top;
-        StringBuilder r = new StringBuilder();
+        StackNode p = top;
+        StringBuilder result = new StringBuilder();
+
         if(empty()){
             throw new EmptyStackException();
         }else {
             while (p != null){
-                r.append("Stack{").append("top=").append(top).append('}');
-                p = p.getNext();
+                result.append("Stack{").append("value=").append(p).append('}');
+                p= p.getNext();
             }
         }
-
-       return r.toString();
-
+        return result.toString();
     }
 }
