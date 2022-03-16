@@ -2,7 +2,8 @@ package com.linkedlist;
 
 public class LinkedList<T> {
     Node<T> head;
-    public LinkedList(){
+
+    public LinkedList() {
         this.head = null;
     }
 
@@ -10,114 +11,97 @@ public class LinkedList<T> {
         return head;
     }
 
-
-
-    public Boolean includes(T v){
+    public Boolean includes(T v) {
         Node<T> pointer = this.head;
 
-            while (pointer != null){
-                if(pointer.value == v){
-                    return true;
-                }
-                pointer = pointer.next;
+        while (pointer != null) {
+            if (pointer.value == v) {
+                return true;
             }
+            pointer = pointer.next;
+        }
         return false;
     }
 
-    public String toString(){
+    public String toString() {
 
         Node<T> pointer = this.head;
         StringBuilder result = new StringBuilder();
-            while (pointer != null){
+        while (pointer != null) {
 
-                result.append("{").append(pointer.value).append("} ->");
-                pointer = pointer.next;
-            }
-            result.append(" null");
+            result.append("{").append(pointer.value).append("} ->");
+            pointer = pointer.next;
+        }
+        result.append(" null");
 
         return result.toString();
     }
 
-    public void append(T v){
-        Node<T> pointer =this.head;
+    public void append(T v) {
+        Node<T> pointer = this.head;
 
-        if(pointer == null){
+        if (pointer == null) {
             Node<T> newNode = new Node<T>(v);
             newNode.next = this.head;
             this.head = newNode;
         }
 
-        while (pointer != null){
-            if(pointer.next == null){
+        while (pointer != null) {
+            if (pointer.next == null) {
                 Node<T> newNode = new Node<T>(v);
-                pointer.next =newNode;
-                newNode.next=null;
+                pointer.next = newNode;
+                newNode.next = null;
                 break;
             }
-            pointer=pointer.next;
+            pointer = pointer.next;
         }
     }
 
-//        public void insertBefore(T ref , T addThis){
-//
-//        Node pointer = this.head;
-//           if(pointer.value == ref){
-//               Node newNode = new Node(addThis);
-//
-//               newNode.next =this.head;
-//               this.head = newNode;
-//
-//           }else{
-//               while (pointer != null){
-//                   if(pointer.value == ref){
-//                       Node newNode = new Node(addThis);
-//                       newNode.next = pointer.next;
-//                       pointer.next = newNode;
-//                       break;
-//                   }else {
-//                       pointer=pointer.next;
-//                   }
-//               }
-//           }
-//        }
-
-        public void insertAfter(T ref, T addThis){
+    public void insertAfter(T ref, T addThis) {
         //https://www.geeksforgeeks.org/linked-list-set-2-inserting-a-node/
 
-            Node<T> pointer = this.head;
+        Node<T> pointer = this.head;
 
-            while (pointer != null){
-                if(pointer.value == ref){
-                    Node<T> newNode = new Node<T>(addThis);
-                    newNode.next = pointer.next;
-                    pointer.next = newNode;
-                }
-                pointer =pointer.next;
+        while (pointer != null) {
+            if (pointer.value == ref) {
+                Node<T> newNode = new Node<T>(addThis);
+                newNode.next = pointer.next;
+                pointer.next = newNode;
             }
+            pointer = pointer.next;
         }
+    }
 
-        public void kth(int num) {
-            Node<T> pointer = this.head;
+    public void kth(int num) {
+        int count = 0;
+        Node pointer = this.head;
 
-            try {
-                for (int i = 0; i < Math.abs(num); i++) {
-                    pointer = pointer.next;
-                }
-                System.out.println(pointer.value);
-
-            }catch (NullPointerException e){
-                System.err.println(e.getMessage());
+            while (pointer != null) {
+                count++;
+                pointer = pointer.next;
             }
+            num = count - num;
 
+        try {
+            Node p = this.head;
+            for (int i = 0; i < Math.abs(num); i++) {
+                p = p.next;
+            }
+            System.out.println(p.value);
+
+        }catch (NullPointerException e){
+            System.err.println(e.getMessage());
         }
+}
 
-        public void insert(T v){
+
+    public void insert(T v){
         Node<T> newNode = new Node<T>(v);
         newNode.next = this.head;
         this.head = newNode;
     }
 
-        public void zip(LinkedList<Integer> list1, LinkedList<Integer> list2){
+    public void zip(LinkedList<Integer> list1, LinkedList<Integer> list2){
             Node listOnePointer = list1.head;
             Node listTwoPointer = list2.head;
 
@@ -182,7 +166,7 @@ public class LinkedList<T> {
 
         }
 
-        public void  reverse(LinkedList<T> list){
+    public void  reverse(LinkedList<T> list){
 
         Node listPinter = list.head;
 
