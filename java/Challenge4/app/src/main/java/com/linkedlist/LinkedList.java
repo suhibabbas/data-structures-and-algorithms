@@ -121,52 +121,64 @@ public class LinkedList<T> {
             Node listOnePointer = list1.head;
             Node listTwoPointer = list2.head;
 
+            if(listOnePointer == null){
 
-            Node<T> newNode = new Node(listOnePointer.value);
-            newNode.next = this.head;
-            this.head = newNode;
-            Node<T> pointer =this.head;
-
-            listOnePointer = listOnePointer.next;
-
-            try {
-                while(listOnePointer != null || listTwoPointer != null){
-
-                    while (true){
-                        if(pointer.next == null){
-                            if(listTwoPointer ==null){
-                                break;
-                            }
-                            Node<T> node2 = new Node(listTwoPointer.value);
-                            pointer.next =node2;
-                            node2.next=null;
-                            break;
-                        }
-                        pointer=pointer.next;
-                    }
-
-                    while (true){
-                        if(pointer.next == null){
-                            if(listOnePointer == null){
-                                break;
-                            }
-                            Node<T> node1 = new Node(listOnePointer.value);
-                            pointer.next =node1;
-                            node1.next=null;
-                            break;
-                        }
-                        pointer=pointer.next;
-                    }
-                    if(listOnePointer!= null){
-                        listOnePointer =listOnePointer.next;
-                    }
-                    if(listTwoPointer != null){
-                        listTwoPointer = listTwoPointer.next;
-                    }
+                while (listTwoPointer != null){
+                    Node<T> newNode = new Node(listTwoPointer.value);
+                    newNode.next = this.head;
+                    this.head = newNode;
+                    listTwoPointer =listTwoPointer.next;
                 }
-            }catch (NullPointerException exception){
-                System.err.println(exception.getMessage());
+            }else{
+                Node<T> newNode = new Node(listOnePointer.value);
+                newNode.next = this.head;
+                this.head = newNode;
+                Node<T> pointer =this.head;
+
+                listOnePointer = listOnePointer.next;
+
+                try {
+                    while(listOnePointer != null || listTwoPointer != null){
+
+                        while (true){
+                            if(pointer.next == null){
+                                if(listTwoPointer ==null){
+                                    break;
+                                }
+                                Node<T> node2 = new Node(listTwoPointer.value);
+                                pointer.next =node2;
+                                node2.next=null;
+                                break;
+                            }
+                            pointer=pointer.next;
+                        }
+
+                        while (true){
+                            if(pointer.next == null){
+                                if(listOnePointer == null){
+                                    break;
+                                }
+                                Node<T> node1 = new Node(listOnePointer.value);
+                                pointer.next =node1;
+                                node1.next=null;
+                                break;
+                            }
+                            pointer=pointer.next;
+                        }
+                        if(listOnePointer!= null){
+                            listOnePointer =listOnePointer.next;
+                        }
+                        if(listTwoPointer != null){
+                            listTwoPointer = listTwoPointer.next;
+                        }
+                    }
+                }catch (NullPointerException exception){
+                    System.err.println(exception.getMessage());
+                }
+
             }
+
+
 
         }
 
