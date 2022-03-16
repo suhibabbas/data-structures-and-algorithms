@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7b17c97-6597-4a7d-8e00-53364f0f1313" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/lab/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/lab/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/lab/queue/data/QueueNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/lab/queue/data/QueueNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/lab/queue/structure/Queue.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/lab/queue/structure/Queue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/lab/stack/data/StackNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/lab/stack/data/StackNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/lab/stack/structure/Stack.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/lab/stack/structure/Stack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/lab/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/lab/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,9 +50,10 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.AppTest">
     <configuration name="App" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.lab.App" />
       <module name="StackAndQueue.app.main" />
@@ -53,6 +61,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AppTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:test" />
+            <option value="--tests" />
+            <option value="&quot;com.lab.AppTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.AppTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

@@ -1,22 +1,16 @@
 package com.lab.stack.data;
 
 public class StackNode {
-    private final String name;
-    private final String number;
 
-    private StackNode next;
+    private final int data;
+    StackNode next;
 
-    public StackNode(String name, String number) {
-        this.name = name;
-        this.number = number;
+    public StackNode(int data) {
+        this.data = data;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getNumber() {
-        return number;
+    public int getData() {
+        return data;
     }
 
     public StackNode getNext() {
@@ -30,8 +24,7 @@ public class StackNode {
     @Override
     public String toString() {
         return "StackNode{" +
-                "name='" + name + '\'' +
-                ", number='" + number + '\'' +
+                "data=" + data +
                 '}';
     }
 }

@@ -14,28 +14,33 @@ public class App {
 
         Stack stack = new Stack();
 
-        stack.push(new StackNode("Suhiab","000-000-000"));
-        stack.push(new StackNode("Mohammad","111-111-111"));
+        stack.push(new StackNode(1));
+        stack.push(new StackNode(2));
 
-        System.out.println(stack);
         System.out.println(stack.peek());
-        stack.pop();
+        System.out.println(stack.pop());
+
         System.out.println(stack);
 
-        System.out.println("############## Queue ##############");
+//        System.out.println("############## Queue ##############");
+//
+//
+            Queue queue =new Queue();
+        System.out.println(queue.enqueue(new QueueNode(1)));
+        System.out.println(queue.enqueue(new QueueNode(2)));
 
-        Queue queue =new Queue();
-
-        queue.add(new QueueNode("Suhib"));
-        queue.add(new QueueNode("Mohammad"));
-        queue.add(new QueueNode("Ahmmad"));
-
-        System.out.println(queue);
         System.out.println(queue.peek());
-        queue.remove();
+//            queue.enqueue(new QueueNode(2));
+//            queue.enqueue(new QueueNode(3));
+//            queue.enqueue(new QueueNode(4));
+//
+////            System.out.println(queue.dequeue());
+//            queue.dequeue();
+//
+//            System.out.println(queue);
 
 
-        System.out.println(queue);
+
 
 
 

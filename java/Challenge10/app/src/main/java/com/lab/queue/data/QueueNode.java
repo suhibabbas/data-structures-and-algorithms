@@ -1,16 +1,16 @@
 package com.lab.queue.data;
 
 public class QueueNode {
-    private String name;
+    private int data;
 
     private QueueNode next;
 
-    public QueueNode(String name) {
-        this.name = name;
+    public QueueNode(int data) {
+        this.data = data;
     }
 
-    public String getName() {
-        return name;
+    public int getData() {
+        return data;
     }
 
     public QueueNode getNext() {
@@ -23,8 +23,9 @@ public class QueueNode {
 
     @Override
     public String toString() {
+
         return "QueueNode{" +
-                "name='" + name + '\'' +
+                "data='" + data + '\'' +
                 '}';
     }
 }

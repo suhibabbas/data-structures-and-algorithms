@@ -2,10 +2,11 @@ package com.lab.queue.structure;
 
 import com.lab.queue.data.QueueNode;
 
+import java.util.EmptyStackException;
 import java.util.NoSuchElementException;
 
 public class Queue {
-    private QueueNode back;
+
     private QueueNode front;
 
     private static final int QUEUE_SIZE = 10;
@@ -20,16 +21,16 @@ public class Queue {
         return front == null;
     }
 
-    public boolean add(QueueNode data){
+    public boolean enqueue(QueueNode data){
+
         if(isEmpty()){
             front =data;
-            back = data;
             size++;
             return true;
         }else {
             if(size < QUEUE_SIZE){
-                data.setNext(back);
-                back= data;
+                data.setNext(front);
+                front=data;
                 size++;
                 return true;
             }
@@ -37,42 +38,53 @@ public class Queue {
         return false;
     }
 
-    public QueueNode remove(){
+    public QueueNode dequeue() {
         QueueNode frontTemp;
-
-        if(isEmpty()){
+        if (isEmpty()) {
             throw new NoSuchElementException("The queue is empty");
-        }else {
-            frontTemp =front;//stores the first node in the queue
-            front = front.getNext();//removes the first node
+        } else {
+            frontTemp = front;
+            front = front.getNext();
             size--;
         }
+
         return frontTemp;
     }
 
-//    public QueueNode poll(){
-//        if(isEmpty()){
-//            throw new NoSuchElementException("The queue is empty");
-//
-//        }else {
-//            return back = back.getNext();
-//        }
-//    }
+
 
     public QueueNode peek() {
+        QueueNode p = front;
         if (isEmpty()) {
             return null;
         } else{
-            return front;
+            while (p != null){
+                if(p.getNext()== null){
+                    return p;
+                }
+                p = p.getNext();
+            }
         }
+        return p;
     }
 
     @Override
     public String toString() {
-        return "Queue{" +
-                "back=" + back +
-                ", front=" + front +
-                ", size=" + size +
-                '}';
+        QueueNode p = front;
+        StringBuilder result = new StringBuilder();
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        } else {
+            while (p != null) {
+                result.insert(0, "Queue{" +
+                        "front=" + p +
+                        ", size=" + size +
+                        '}');
+
+
+                p = p.getNext();
+            }
+        }
+        return result.toString();
     }
 }
