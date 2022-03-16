@@ -16,10 +16,9 @@ public class App {
 
         LinkedList<Integer> list2 = new LinkedList();
         list2.insert(2);
-        list2.append(5);
-//        list2.append(7);
-//        list2.append(9);
-//        list2.append(4);
+        list2.insert(7);
+        list2.insert(9);
+        list2.insert(5);
 
 
 //        newList.insertAfter(8,5);
@@ -35,12 +34,7 @@ public class App {
         LinkedList<Integer> mergeList = new LinkedList<>();
 
         mergeList.zip(list1,list2);
-        System.out.println(mergeList.toString());
-
-        LinkedList<Integer> reversList = new LinkedList<>();
-
-        reversList.reverse(list1);
-        System.out.println(reversList);
+        System.out.println(mergeList);
 
 
 
