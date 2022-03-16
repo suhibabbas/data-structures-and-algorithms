@@ -20,21 +20,22 @@ public class App {
         list2.insert(9);
         list2.insert(5);
 
+        System.out.println(list1);
+
 
 //        newList.insertAfter(8,5);
 //        System.out.println(newList.includes(-3));
-
-//        newList1.kth(3);
+       list1.kth(3);
 //        newList1.kth(0);
 //        newList1.kth(-5);
 //        newList1.kth(8);
 
-        System.out.println(list1.toString());
-        System.out.println(list2.toString());
-        LinkedList<Integer> mergeList = new LinkedList<>();
-
-        mergeList.zip(list1,list2);
-        System.out.println(mergeList);
+//        System.out.println(list1.toString());
+//        System.out.println(list2.toString());
+//        LinkedList<Integer> mergeList = new LinkedList<>();
+//
+//        mergeList.zip(list1,list2);
+//        System.out.println(mergeList);
 
 
 
