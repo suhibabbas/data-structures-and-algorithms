@@ -72,8 +72,8 @@ public class LinkedList<T> {
         }
     }
 
-    public void kth(int num) {
-        int count = 0;
+    public String kth(int num) {
+        int count = -1;
         Node pointer = this.head;
 
             while (pointer != null) {
@@ -87,11 +87,12 @@ public class LinkedList<T> {
             for (int i = 0; i < Math.abs(num); i++) {
                 p = p.next;
             }
-            System.out.println(p.value);
+            return p.value.toString();
 
         }catch (NullPointerException e){
             System.err.println(e.getMessage());
         }
+        return null;
 }
 
 

@@ -9,9 +9,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 class AppTest {
+    @Test void KthTest(){
+        LinkedList<Integer> list = new LinkedList<>();
+        list.insert(1);
+        list.insert(2);
+        list.insert(3);
+        list.insert(4);
 
+        String result = list.kth(3);
+            assertEquals("4",result);
 
-
+    }
 
     @Test void zipTest() {
         LinkedList<Integer> list1 = new LinkedList<>();
