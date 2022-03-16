@@ -25,7 +25,7 @@ public class App {
 
 //        newList.insertAfter(8,5);
 //        System.out.println(newList.includes(-3));
-       list1.kth(3);
+        System.out.println(list1.kth(3));
 //        newList1.kth(0);
 //        newList1.kth(-5);
 //        newList1.kth(8);
