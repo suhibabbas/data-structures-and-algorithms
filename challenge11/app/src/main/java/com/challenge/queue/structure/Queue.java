@@ -17,7 +17,6 @@ public boolean enQueue(StackNode data){
     if(size<QUEUE_SIZE){
         while (stack1.peek() != null){
             stack2.push(stack1.pop());
-
         }
 
         stack1.push(data);

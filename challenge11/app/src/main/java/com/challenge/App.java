@@ -13,11 +13,6 @@ public class App {
 
         Queue queue =new Queue();
 
-        Stack stack = new Stack();
-
-
-
-
         try {
             System.out.println(queue.enQueue(new StackNode(1)));
             System.out.println(queue.enQueue(new StackNode(2)));
