@@ -24,13 +24,12 @@ public class Stack {
     public StackNode pop(){
         StackNode r;
 
-        if(empty()){
-            return null;
-        }else{
+        if(!empty()){
             r = top;
             top = top.getNext();
             return r;
         }
+        return null;
     }
 
     public StackNode peek(){

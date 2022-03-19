@@ -21,11 +21,15 @@ public class App {
         list2.insert(5);
 
         System.out.println(list1);
+        LinkedList<Integer> reversList = new LinkedList<>();
+
+        list1.reverse(list1);
+        System.out.println(list1);
 
 
 //        newList.insertAfter(8,5);
 //        System.out.println(newList.includes(-3));
-        System.out.println(list1.kth(3));
+//        System.out.println(list1.kth(3));
 //        newList1.kth(0);
 //        newList1.kth(-5);
 //        newList1.kth(8);
@@ -41,6 +45,20 @@ public class App {
 
 
 
+    }
+    public static LinkedList<Integer> reverseLinkelist(LinkedList<Integer> list){
+        Node p = null ;
+        Node n = list.head;
+        Node c = list.head ;
+
+        while (c !=null){
+            n = c.next;
+            c.next =p;
+            p = c;
+            c = n;
+        }
+        LinkedList<Integer> rev = new LinkedList<>();
+        return rev;
     }
 
 }
