@@ -1,15 +1,15 @@
 package com.lab.queue.data;
 
-public class QueueNode {
-    private int data;
+public class QueueNode <Type>{
+    Type data;
 
-    private QueueNode next;
+    QueueNode next;
 
-    public QueueNode(int data) {
+    public QueueNode(Type data) {
         this.data = data;
     }
 
-    public int getData() {
+    public Type getData() {
         return data;
     }
 
@@ -19,6 +19,10 @@ public class QueueNode {
 
     public void setNext(QueueNode next) {
         this.next = next;
+    }
+
+    public void setData(Type data) {
+        this.data = data;
     }
 
     @Override

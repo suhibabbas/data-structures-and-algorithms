@@ -22,27 +22,21 @@ public class App {
 
         System.out.println(stack);
 
-//        System.out.println("############## Queue ##############");
+        System.out.println("############## Queue ##############");
 //
 //
-            Queue queue =new Queue();
-        System.out.println(queue.enqueue(new QueueNode(1)));
-        System.out.println(queue.enqueue(new QueueNode(2)));
+            Queue<Integer> queue =new Queue<>();
+
+        System.out.println(queue.enqueue(5));
+            queue.enqueue(3);
+            queue.enqueue(1);
 
         System.out.println(queue.peek());
-//            queue.enqueue(new QueueNode(2));
-//            queue.enqueue(new QueueNode(3));
-//            queue.enqueue(new QueueNode(4));
-//
-////            System.out.println(queue.dequeue());
-//            queue.dequeue();
-//
-//            System.out.println(queue);
+        System.out.println("Deleted data => "+queue.dequeue());
 
+        System.out.println(queue.peek());
 
-
-
-
+        System.out.println(queue);
 
     }
 }
