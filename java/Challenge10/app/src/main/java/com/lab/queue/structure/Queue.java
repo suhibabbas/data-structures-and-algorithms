@@ -1,13 +1,16 @@
 package com.lab.queue.structure;
 
+
+
 import com.lab.queue.data.QueueNode;
 
 import java.util.EmptyStackException;
 import java.util.NoSuchElementException;
 
-public class Queue {
+public class Queue<Type> {
 
-    private QueueNode front;
+    private QueueNode<Type> front;
+    private QueueNode<Type> back;
 
     private static final int QUEUE_SIZE = 10;
 
@@ -21,16 +24,17 @@ public class Queue {
         return front == null;
     }
 
-    public boolean enqueue(QueueNode data){
-
-        if(isEmpty()){
-            front =data;
+    public boolean enqueue(Type data){
+        QueueNode<Type> queueNode = new QueueNode<>(data);
+        if (isEmpty()){
+            front = queueNode;
+            back = queueNode;
             size++;
             return true;
         }else {
-            if(size < QUEUE_SIZE){
-                data.setNext(front);
-                front=data;
+            if (size < QUEUE_SIZE){
+                queueNode.setNext(back);
+                back = queueNode;
                 size++;
                 return true;
             }
@@ -38,13 +42,21 @@ public class Queue {
         return false;
     }
 
-    public QueueNode dequeue() {
-        QueueNode frontTemp;
+    public QueueNode<Type> dequeue() {
+        QueueNode<Type> frontTemp;
+        QueueNode<Type> backNode;
         if (isEmpty()) {
             throw new NoSuchElementException("The queue is empty");
         } else {
             frontTemp = front;
+            backNode =back;
             front = front.getNext();
+
+            while (backNode != frontTemp){
+                front = backNode;
+
+                backNode =backNode.getNext();
+            }
             size--;
         }
 
@@ -53,38 +65,20 @@ public class Queue {
 
 
 
-    public QueueNode peek() {
-        QueueNode p = front;
-        if (isEmpty()) {
-            return null;
-        } else{
-            while (p != null){
-                if(p.getNext()== null){
-                    return p;
-                }
-                p = p.getNext();
-            }
-        }
-        return p;
+    public QueueNode<Type> peek() {
+       if(isEmpty()){
+           return null;
+       }else {
+           return front;
+       }
     }
 
     @Override
     public String toString() {
-        QueueNode p = front;
-        StringBuilder result = new StringBuilder();
-        if (isEmpty()) {
-            throw new EmptyStackException();
-        } else {
-            while (p != null) {
-                result.insert(0, "Queue{" +
-                        "front=" + p +
-                        ", size=" + size +
-                        '}');
-
-
-                p = p.getNext();
-            }
-        }
-        return result.toString();
+        return "Queue{" +
+                "front=" + front +
+                ", back=" + back +
+                ", size=" + size +
+                '}';
     }
 }

@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
     Stack stack;
-    Queue queue;
+    Queue<Integer> queue;
 
     @BeforeEach
     void setUp(){
@@ -37,7 +37,6 @@ class AppTest {
         assertEquals(expected,actual1);
 
     }
-
     @Test void stackPeekTest(){
 
         StackNode expected = new StackNode(3);
@@ -50,23 +49,24 @@ class AppTest {
         StackNode actual = stack.peek();
         assertEquals(expected,actual);
     }
+
     @Test void enQueueTest(){
-        boolean actual = queue.enqueue(new QueueNode(1));
+        boolean actual = queue.enqueue(5);
         assertTrue(actual);
     }
 
     @Test void deQueueTest(){
-        QueueNode expected = new QueueNode(1);
-        queue.enqueue(expected);
+        QueueNode<Integer> expected = new QueueNode<>(1);
+        queue.enqueue(1);
 
-        QueueNode actual = queue.dequeue();
-        assertEquals(expected,actual);
+        QueueNode<Integer> actual = queue.dequeue();
+        assertEquals(expected.toString(),actual.toString());
     }
     @Test void queuePeek(){
-        QueueNode expected = new QueueNode(1);
-        queue.enqueue(expected);
+        QueueNode<Integer> expected = new QueueNode<>(1);
+        queue.enqueue(1);
 
-        QueueNode actual = queue.peek();
-        assertEquals(expected,actual);
+        QueueNode<Integer> actual = queue.peek();
+        assertEquals(expected.toString(),actual.toString());
     }
 }
