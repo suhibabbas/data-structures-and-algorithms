@@ -5,7 +5,45 @@ package trees;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import trees.Data.BinaryNode;
+import trees.structure.BinaryTree;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
+
+    //Note: Assuming all values are positive
+
+
+    @Test void findMaxTest(){
+        BinaryTree<Integer> tree = new BinaryTree<>();
+
+        tree.setRoot(new BinaryNode<>(2));
+
+        tree.getRoot().setLeftNode(new BinaryNode<>(7));
+        tree.getRoot().setRightNode(new BinaryNode<>(5));
+
+        tree.getRoot().getLeftNode().setLeftNode(new BinaryNode<>(2));
+        tree.getRoot().getLeftNode().setRightNode(new BinaryNode<>(6));
+        tree.getRoot().getRightNode().setRightNode(new BinaryNode<>(9));
+
+        tree.getRoot().getLeftNode().getRightNode().setLeftNode(new BinaryNode<>(5));
+        tree.getRoot().getLeftNode().getRightNode().setRightNode(new BinaryNode<>(11));
+        tree.getRoot().getRightNode().getRightNode().setLeftNode(new BinaryNode<>(4));
+
+        int result = tree.findMax();
+
+        assertEquals(11, result);
+    }
+
+    @Test void findMaxNullTest(){
+
+        // ZERO mean the null
+        BinaryTree<Integer> tree = new BinaryTree<>();
+
+        int result = tree.findMax();
+
+        assertEquals(0, result);
+    }
 
 }
