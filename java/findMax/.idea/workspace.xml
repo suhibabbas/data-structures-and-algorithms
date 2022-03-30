@@ -12,6 +12,8 @@
       <change beforePath="$PROJECT_DIR$/../Challenge10/app/src/main/java/com/lab/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Challenge10/app/src/main/java/com/lab/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Challenge10/app/src/main/java/com/lab/queue/data/QueueNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Challenge10/app/src/main/java/com/lab/queue/data/QueueNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Challenge10/app/src/main/java/com/lab/queue/structure/Queue.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Challenge10/app/src/main/java/com/lab/queue/structure/Queue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/trees/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/trees/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/trees/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/trees/AppTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../trees/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../trees/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +64,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="Gradle.AppTest">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="trees.App" />
       <module name="trees.app.main" />
@@ -124,8 +126,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
         <item itemvalue="Gradle.AppTest" />
+        <item itemvalue="Application.App" />
         <item itemvalue="Gradle.AppTest.addTest" />
       </list>
     </recent_temporary>
