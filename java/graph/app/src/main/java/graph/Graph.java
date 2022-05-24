@@ -57,6 +57,26 @@ public class Graph {
             return adjVertices.get(new Node(data));
     }
 
+    public Set<String> dfs(Graph graph ,String root){
+        Set<String> visited =new LinkedHashSet<>();
+        Stack<String> stack = new Stack<>();
+        stack.push(root);
+        visited.add(root);
+
+        while (!stack.isEmpty()){
+            String n = stack.peek();
+            stack.pop();
+
+            for (Node node: graph.getAdjVertices(n)){
+                if(!visited.contains(node.data)){
+                    stack.push(node.data);
+                    visited.add(node.data);
+                }
+            }
+        }
+        return visited;
+    }
+
     public int size(Graph graph){
         return graph.adjVertices.size();
     }
