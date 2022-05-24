@@ -14,14 +14,15 @@ public class App {
 
         graph.addNode("A");
         graph.addNode("B");
-//        graph.addNode("C");
+        graph.addNode("C");
 
         graph.addEdges("A","B");
-//        graph.addEdges("B","C");
-//        graph.addEdges("A","C");
+        graph.addEdges("B","C");
+        graph.addEdges("A","C");
 
         System.out.println(graph.getVertices());
-//        System.out.println(graph.bfs(graph,"A"));
+        System.out.println(graph.dfs(graph,"A"));
+        System.out.println(graph.bfs(graph,"A"));
 //        System.out.println(graph.size(graph));
     }
 }
