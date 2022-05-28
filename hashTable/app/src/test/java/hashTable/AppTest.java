@@ -7,8 +7,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
-    }
+   @Test void  repeatedWordTest(){
+       String expected1 = App.repeatedWord("Once upon a time, there was a brave princess who...");
+       assertEquals(expected1,"a");
+
+       String expected2 = App.repeatedWord("");
+       assertEquals(expected2,"There are no duplicate");
+
+   }
 }
