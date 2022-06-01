@@ -4,6 +4,7 @@ import hashTable.data.HashNode;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 
 public class HashMap<K,V> {
@@ -20,6 +21,10 @@ public class HashMap<K,V> {
         for(int index = 0 ; index <buckets;index++){
             bucketArray.add(null);
         }
+    }
+
+    public int getBuckets(){
+        return buckets;
     }
 
     public int getSize() {
@@ -68,9 +73,18 @@ public class HashMap<K,V> {
             KeysArray.add(key);
             size++;
         }else {
-            bucketArray.set(index,newNode);
+
+            if(KeysArray.contains(key)){
+                head.setValue(value);
+                return;
+            }
+            KeysArray.add(key);
+            newNode.setNext(head.getNext());
             head.setNext(newNode);
             size++;
+//            bucketArray.set(index,newNode);
+//            head.setNext(newNode);
+//            size++;
         }
 
         if((1.0* size)/ buckets >= 0.7){
@@ -98,4 +112,25 @@ public class HashMap<K,V> {
     public HashSet<K> keys(){
         return KeysArray;
     }
+
+    public List<List<String>> leftJoin(HashMap<String, String> right,List<List<String>> result){
+        List<String> list = new ArrayList<>();
+        for(int i = 0; i <buckets;i++){
+            HashNode<K, V> head = bucketArray.get(i);
+            while (head !=null){
+                list = new ArrayList<>();
+                list.add(head.getKey().toString());
+                list.add(head.getValue().toString());
+                if (right.contain(head.getKey().toString())){
+                    list.add(right.get(head.getKey().toString()));
+                }else{
+                    list.add(null);
+                }
+                result.add(list);
+                head = head.getNext();
+            }
+        }
+        return result;
+    }
+
 }

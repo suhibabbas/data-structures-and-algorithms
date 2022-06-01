@@ -5,29 +5,52 @@ package hashTable;
 
 import hashTable.structure.HashMap;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class App {
 
 
     public static void main(String[] args) {
 
-        HashMap<String,String>hashMap = new HashMap<>();
+//        HashMap<String,String>hashMap = new HashMap<>();
 
-        hashMap.set("JAVA", "JAVA");
-        hashMap.set("Amman", "Amman");
-        hashMap.set("Jordan", "Jordan");
-        hashMap.set("J", "J");
-        hashMap.set("Bob", "Bab");
-        hashMap.set("Carl", "Carl");
+//        hashMap.set("JAVA", "JAVA");
+//        hashMap.set("Amman", "Amman");
+//        hashMap.set("Jordan", "Jordan");
+//        hashMap.set("J", "J");
+//        hashMap.set("Bob", "Bab");
+//        hashMap.set("Carl", "Carl");
 
-        System.out.println(hashMap.contain("J"));
+//        System.out.println(hashMap.contain("J"));
+//
+//        System.out.println(hashMap.get("Bob"));
+//        System.out.println(hashMap.getSize());
+//
+//        System.out.println(repeatedWord("It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only..."));
+//        System.out.println(repeatedWord(""));
 
-        System.out.println(hashMap.get("Bob"));
-        System.out.println(hashMap.getSize());
+        HashMap<String , String> hashMap = new HashMap<>();
+        hashMap.set("diligent" , "employed");
+        hashMap.set("fond" , "enamored");
+        hashMap.set("guide" , "usher");
+        hashMap.set("outfit" , "garb");
+        hashMap.set("wrath" , "anger");
 
-        System.out.println(repeatedWord("It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only..."));
-        System.out.println(repeatedWord(""));
+        HashMap<String , String> hashMap2 = new HashMap<>();
+        hashMap2.set("diligent" , "idle");
+        hashMap2.set("fond" , "averse");
+        hashMap2.set("guide" , "follow");
+        hashMap2.set("flow" , "jam");
+        hashMap2.set("wrath" , "delight");
 
+        System.out.println(leftJoin(hashMap , hashMap2));
 
+    }
+
+    public static List<List<String>> leftJoin(HashMap<String , String> leftHash , HashMap<String , String> rightHash){
+        List<List<String>> result = new ArrayList<>();
+        return leftHash.leftJoin(rightHash , result);
     }
 
 
