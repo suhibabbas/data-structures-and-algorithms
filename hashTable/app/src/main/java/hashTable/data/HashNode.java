@@ -2,9 +2,9 @@ package hashTable.data;
 
 public class HashNode<K,V> {
 
-    private final K key;
-    private final V value;
-    private final Integer hashCode;
+    private  K key;
+    private  V value;
+    private  Integer hashCode;
     private HashNode<K,V> next;
 
     public HashNode(K key, V value, Integer hashCode) {
@@ -33,5 +33,17 @@ public class HashNode<K,V> {
 
     public void setNext(HashNode<K, V> next) {
         this.next = next;
+    }
+
+    public void setKey(K key) {
+        this.key = key;
+    }
+
+    public void setValue(V value) {
+        this.value = value;
+    }
+
+    public void setHashCode(Integer hashCode) {
+        this.hashCode = hashCode;
     }
 }
