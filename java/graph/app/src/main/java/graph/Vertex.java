@@ -2,18 +2,26 @@ package graph;
 
 import java.util.Objects;
 
-public class Node {
+public class Vertex {
 
     String data;
+    int weight;
 
-    public Node(String data) {
+    public Vertex(String data) {
         this.data = data;
     }
+
+    public Vertex(String data, int weight) {
+        this.data = data;
+        this.weight = weight;
+    }
+
 
     @Override
     public String toString() {
         return "Vertex{" +
                 "data='" + data + '\'' +
+                ", weight=" + weight +
                 '}';
     }
 
@@ -21,7 +29,7 @@ public class Node {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Node vertex = (Node) o;
+        Vertex vertex = (Vertex) o;
         return Objects.equals(data, vertex.data);
     }
 
