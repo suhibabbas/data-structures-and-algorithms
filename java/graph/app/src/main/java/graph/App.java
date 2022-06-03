@@ -3,8 +3,6 @@
  */
 package graph;
 
-import java.util.Set;
-
 public class App {
 
 
@@ -16,13 +14,22 @@ public class App {
         graph.addNode("B");
         graph.addNode("C");
 
-        graph.addEdges("A","B");
-        graph.addEdges("B","C");
         graph.addEdges("A","C");
 
-        System.out.println(graph.getVertices());
-        System.out.println(graph.dfs(graph,"A"));
-        System.out.println(graph.bfs(graph,"A"));
+        graph.addEdges("B","A",25);
+        graph.addEdges("C","B",30);
+
+        System.out.println(graph.getNode());
+        System.out.println("");
+
+        System.out.println(graph.getNeighbors("A"));
+        System.out.println(graph.getNeighbors("B"));
+        System.out.println(graph.getNeighbors("C"));
+        System.out.println("");
+
+        System.out.println(graph.size());
+
+
 //        System.out.println(graph.size(graph));
     }
 }

@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Graph {
 
-    private Map<Node, List<Node>> adjVertices;
+    private Map<Vertex, List<Vertex>> adjVertices;
 
 
     public Graph(){
@@ -12,49 +12,41 @@ public class Graph {
     }
 
     public String addNode(String data){
-        Node node = new Node(data);
-        adjVertices.putIfAbsent(node,new ArrayList<>());
+        Vertex vertex = new Vertex(data);
+        adjVertices.putIfAbsent(vertex,new ArrayList<>());
 
-        return node.toString();
+        return vertex.toString();
     }
 
-    public void addEdges(String d1,String d2){
-        Node v1 = new Node(d1);
-        Node v2 = new Node(d2);
+    public void addEdges(String d1,String d2 ){
+        Vertex v1 = new Vertex(d1);
+        Vertex v2 = new Vertex(d2);
 
         adjVertices.get(v1).add(v2);
         adjVertices.get(v2).add(v2);
     }
 
-    public String  getVertices(){
+    public void addEdges(String data1, String data2, int weight){
+      Vertex vertex1 = new Vertex(data1,weight);
+      Vertex vertex2 = new Vertex(data2, weight);
+
+      adjVertices.get(vertex1).add(vertex2);
+      adjVertices.get(vertex2).add(vertex1);
+    }
+
+    public String getNode(){
+        if(size() == 0)
+            return null;
         StringBuilder stringBuilder= new StringBuilder();
-        for(Node v : adjVertices.keySet()){
+        for(Vertex v : adjVertices.keySet()){
             stringBuilder.append(v);
             stringBuilder.append(adjVertices.get(v));
         }
         return stringBuilder.toString();
     }
 
-    public Set<String> bfs (Graph graph,String root){
-        Set<String> visited = new LinkedHashSet<>();
-        Queue<String> queue = new LinkedList<>();
-        queue.add(root);
-        visited.add(root);
-
-        while (!queue.isEmpty()){
-            String vertex = queue.poll();
-            for (Node node:graph.getAdjVertices(vertex)
-                 ) {
-                if(!visited.contains(node.data)){
-                    queue.add(node.data);
-                    visited.add(node.data);
-                }
-            }
-        }
-        return visited;
-    }
-    public List<Node> getAdjVertices(String data){
-            return adjVertices.get(new Node(data));
+    public List<Vertex> getNeighbors(String data){
+            return adjVertices.get(new Vertex(data));
     }
 
     public Set<String> dfs(Graph graph ,String root){
@@ -67,18 +59,37 @@ public class Graph {
             String n = stack.peek();
             stack.pop();
 
-            for (Node node: graph.getAdjVertices(n)){
-                if(!visited.contains(node.data)){
-                    stack.push(node.data);
-                    visited.add(node.data);
+            for (Vertex vertex: graph.getNeighbors(n)){
+                if(!visited.contains(vertex.data)){
+                    stack.push(vertex.data);
+                    visited.add(vertex.data);
                 }
             }
         }
         return visited;
     }
 
-    public int size(Graph graph){
-        return graph.adjVertices.size();
+    public Set<String> bfs (Graph graph,String root){
+        Set<String> visited = new LinkedHashSet<>();
+        Queue<String> queue = new LinkedList<>();
+        queue.add(root);
+        visited.add(root);
+
+        while (!queue.isEmpty()){
+            String poll = queue.poll();
+            for (Vertex vertex:graph.getNeighbors(poll)
+            ) {
+                if(!visited.contains(vertex.data)){
+                    queue.add(vertex.data);
+                    visited.add(vertex.data);
+                }
+            }
+        }
+        return visited;
+    }
+
+    public int size(){
+        return adjVertices.size();
     }
 
 }

@@ -3,7 +3,6 @@
  */
 package graph;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,9 +19,9 @@ class AppTest {
         graph.addNode("A");
         graph.addNode("B");
 
-        String actual = graph.getVertices();
+        String actual = graph.getNode();
 
-        assertEquals("Vertex{data='A'}[]Vertex{data='B'}[]",actual);
+        assertEquals("Vertex{data='A', weight=0}[]Vertex{data='B', weight=0}[]",actual);
     }
 
     @Test void graphEdgeTest(){
@@ -30,20 +29,26 @@ class AppTest {
         graph.addNode("B");
 
         graph.addEdges("A","B");
-        String actual = graph.getVertices();
+        String actual = graph.getNode();
 
-        assertEquals("Vertex{data='A'}[Vertex{data='B'}]Vertex{data='B'}[Vertex{data='B'}]",actual);
+        assertEquals("Vertex{data='A', weight=0}[Vertex{data='B', weight=0}]Vertex{data='B', weight=0}[Vertex{data='B', weight=0}]",actual);
     }
 
     @Test void neighborsTest(){
         graph.addNode("A");
         graph.addNode("B");
 
-        graph.addEdges("A","B");
-        String actual = String.valueOf(graph.bfs(graph,"A"));
+        graph.addEdges("A","B",20);
 
-        assertEquals("[A, B]",actual);
+        assertEquals("[Vertex{data='B', weight=20}]",graph.getNeighbors("A").toString());
 
+    }
+    @Test void getSizeTest(){
+        graph.addNode("A");
+        graph.addNode("B");
 
+        int size = graph.size();
+
+        assertEquals(2,size);
     }
 }
