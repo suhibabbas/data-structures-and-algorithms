@@ -34,16 +34,28 @@ public class Graph {
       adjVertices.get(vertex2).add(vertex1);
     }
 
-    public String getNode(){
-        if(size() == 0)
-            return null;
-        StringBuilder stringBuilder= new StringBuilder();
-        for(Vertex v : adjVertices.keySet()){
-            stringBuilder.append(v);
-            stringBuilder.append(adjVertices.get(v));
-        }
-        return stringBuilder.toString();
+    public Set getNodes(){
+        return adjVertices.keySet();
     }
+
+//    public String getNode(){
+//
+//        ArrayList<Object> vertices = new ArrayList<>();
+//        if(size() == 0)
+//            return null;
+//        StringBuilder stringBuilder= new StringBuilder();
+//        for(Vertex v : adjVertices.keySet()){
+//            stringBuilder.append(v);
+//            stringBuilder.append(adjVertices.get(v));
+//
+////            vertices.add(v);
+//            vertices.add(adjVertices.get(v));
+//
+//
+//        }
+//        System.out.println(vertices);
+//        return stringBuilder.toString();
+//    }
 
     public List<Vertex> getNeighbors(String data){
             return adjVertices.get(new Vertex(data));

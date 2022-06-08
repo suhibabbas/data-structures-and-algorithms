@@ -19,7 +19,8 @@ public class App {
         graph.addEdges("B","A",25);
         graph.addEdges("C","B",30);
 
-        System.out.println(graph.getNode());
+//        System.out.println(graph.getNode());
+        System.out.println(graph.getNodes());
         System.out.println("");
 
         System.out.println(graph.getNeighbors("A"));
