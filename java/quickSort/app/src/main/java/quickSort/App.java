@@ -21,9 +21,7 @@ public class App {
     {
         if (left < right) {
             int position = partition(arr, left, right);
-
             quickSort(arr, left, position - 1);
-
             quickSort(arr, position + 1, right);
         }
     }
