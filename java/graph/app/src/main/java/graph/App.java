@@ -12,27 +12,31 @@ public class App {
 
         Graph graph = new Graph();
 
-        graph.addNode("Pandora");
-        graph.addNode("Arendelle");
-        graph.addNode("Metroville");
-        graph.addNode("Monstropolis");
-        graph.addNode("Naboo");
-        graph.addNode("Narnia");
+        graph.addNode("a");
+        graph.addNode("b");
+        graph.addNode("c");
+        graph.addNode("d");
+        graph.addNode("e");
+        graph.addNode("f");
+        graph.addNode("g");
+        graph.addNode("h");
 
-        graph.addEdges("Pandora","Arendelle",150);
-        graph.addEdges("Pandora","Metroville",82);
-        graph.addEdges("Arendelle","Metroville",99);
-        graph.addEdges("Arendelle","Monstropolis",42);
-        graph.addEdges("Monstropolis","Metroville",105);
-        graph.addEdges("Naboo","Metroville",26);
-        graph.addEdges("Narnia","Metroville",37);
-        graph.addEdges("Narnia","Naboo",250);
-        graph.addEdges("Naboo","Monstropolis",73);
+        graph.addEdges("a","b");
+        graph.addEdges("b","c");
+        graph.addEdges("c","g");
+        graph.addEdges("a","d");
 
-        ArrayList<String> cities = new ArrayList<>();
-        cities.add("Metroville");
-        cities.add("Pandora");
-        System.out.println(businessTripCost(graph,cities));
+        graph.addEdges("b","d");
+
+        graph.addEdges("d","e");
+        graph.addEdges("d","h");
+        graph.addEdges("d","f");
+        graph.addEdges("f","h");
+
+
+        System.out.println(graph.dfs(graph,"a"));
+
+
     }
 
     public static String businessTripCost(Graph graph , ArrayList<String> cities){

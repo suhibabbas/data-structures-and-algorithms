@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -49,6 +50,35 @@ class AppTest {
         cities2.add("Naboo");
         String actual2 = App.businessTripCost(graph,cities2);
         assertNull(actual2);
+    }
+
+    @Test void dfsTest(){
+        assertNull(graph.dfs(graph,""));
+
+
+        graph.addNode("a");
+        graph.addNode("b");
+        graph.addNode("c");
+        graph.addNode("d");
+        graph.addNode("e");
+        graph.addNode("f");
+        graph.addNode("g");
+        graph.addNode("h");
+
+        graph.addEdges("a","b");
+        graph.addEdges("b","c");
+        graph.addEdges("c","g");
+        graph.addEdges("a","d");
+
+        graph.addEdges("b","d");
+
+        graph.addEdges("d","e");
+        graph.addEdges("d","h");
+        graph.addEdges("d","f");
+        graph.addEdges("f","h");
+
+        assertEquals("[a, b, d, e, h, f, c, g]",graph.dfs(graph,"a").toString());
+
     }
 
 //    @Test void graphAddNodeTest(){

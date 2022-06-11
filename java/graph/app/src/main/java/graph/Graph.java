@@ -82,25 +82,24 @@ public class Graph {
     }
 
     public List<Vertex> getNeighbors(String data){
-
-
             return adjVertices.get(new Vertex(data));
     }
 
-    public Set<String> dfs(Graph graph ,String root){
-        Set<String> visited =new LinkedHashSet<>();
+    public List<String> dfs(Graph graph,String root){
+        if(root.equals("")){
+            return null;
+        }
+
+        List<String> visited =new ArrayList<>();
         Stack<String> stack = new Stack<>();
         stack.push(root);
         visited.add(root);
-
         while (!stack.isEmpty()){
-            String n = stack.peek();
-            stack.pop();
-
+            String n = stack.pop();
             for (Vertex vertex: graph.getNeighbors(n)){
-                if(!visited.contains(vertex.data)){
-                    stack.push(vertex.data);
-                    visited.add(vertex.data);
+                if(!visited.contains(vertex.getData())){
+                    stack.push(vertex.getData());
+                    visited.add(vertex.getData());
                 }
             }
         }
