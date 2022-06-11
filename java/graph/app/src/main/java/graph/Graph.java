@@ -38,6 +38,19 @@ public class Graph {
         return adjVertices.keySet();
     }
 
+    public int BusinessTripCost(String[] cities){
+
+        String data = cities[0];
+        List<Vertex> list = adjVertices.get(new Vertex(data));
+        for (String c :cities
+             ) {
+
+        }
+
+
+    return 0;
+    }
+
 //    public String getNode(){
 //
 //        ArrayList<Object> vertices = new ArrayList<>();
@@ -57,7 +70,20 @@ public class Graph {
 //        return stringBuilder.toString();
 //    }
 
+    public int getWeight(String vertex , String visited){
+    List<Vertex> list = adjVertices.get(new Vertex(vertex));
+    int weight =0;
+    for(Vertex v : list){
+        if(Objects.equals(v.getData(), visited)){
+            weight = v.getWeight();
+        }
+    }
+    return weight;
+    }
+
     public List<Vertex> getNeighbors(String data){
+
+
             return adjVertices.get(new Vertex(data));
     }
 

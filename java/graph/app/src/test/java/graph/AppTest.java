@@ -5,6 +5,9 @@ package graph;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -15,40 +18,73 @@ class AppTest {
         graph = new Graph();
     }
 
-    @Test void graphAddNodeTest(){
-        graph.addNode("A");
-        graph.addNode("B");
+    @Test void businessTripCostTest(){
+        graph.addNode("Pandora");
+        graph.addNode("Arendelle");
+        graph.addNode("Metroville");
+        graph.addNode("Monstropolis");
+        graph.addNode("Naboo");
+        graph.addNode("Narnia");
 
-        String actual = graph.getNode();
+        graph.addEdges("Pandora","Arendelle",150);
+        graph.addEdges("Pandora","Metroville",82);
+        graph.addEdges("Arendelle","Metroville",99);
+        graph.addEdges("Arendelle","Monstropolis",42);
+        graph.addEdges("Monstropolis","Metroville",105);
+        graph.addEdges("Naboo","Metroville",26);
+        graph.addEdges("Narnia","Metroville",37);
+        graph.addEdges("Narnia","Naboo",250);
+        graph.addEdges("Naboo","Monstropolis",73);
 
-        assertEquals("Vertex{data='A', weight=0}[]Vertex{data='B', weight=0}[]",actual);
+        ArrayList<String> cities1 = new ArrayList<>();
+        cities1.add("Metroville");
+        cities1.add("Pandora");
+        String actual= App.businessTripCost(graph,cities1);
+        assertEquals("82$",actual);
+
+
+        ArrayList<String> cities2 = new ArrayList<>();
+        cities2.add("Narnia");
+        cities2.add("Arendelle");
+        cities2.add("Naboo");
+        String actual2 = App.businessTripCost(graph,cities2);
+        assertNull(actual2);
     }
 
-    @Test void graphEdgeTest(){
-        graph.addNode("A");
-        graph.addNode("B");
+//    @Test void graphAddNodeTest(){
+//        graph.addNode("A");
+//        graph.addNode("B");
+//
+//        String actual = graph.getNode();
+//
+//        assertEquals("Vertex{data='A', weight=0}[]Vertex{data='B', weight=0}[]",actual);
+//    }
 
-        graph.addEdges("A","B");
-        String actual = graph.getNode();
-
-        assertEquals("Vertex{data='A', weight=0}[Vertex{data='B', weight=0}]Vertex{data='B', weight=0}[Vertex{data='B', weight=0}]",actual);
-    }
-
-    @Test void neighborsTest(){
-        graph.addNode("A");
-        graph.addNode("B");
-
-        graph.addEdges("A","B",20);
-
-        assertEquals("[Vertex{data='B', weight=20}]",graph.getNeighbors("A").toString());
-
-    }
-    @Test void getSizeTest(){
-        graph.addNode("A");
-        graph.addNode("B");
-
-        int size = graph.size();
-
-        assertEquals(2,size);
-    }
+//    @Test void graphEdgeTest(){
+//        graph.addNode("A");
+//        graph.addNode("B");
+//
+//        graph.addEdges("A","B");
+//        String actual = graph.getNode();
+//
+//        assertEquals("Vertex{data='A', weight=0}[Vertex{data='B', weight=0}]Vertex{data='B', weight=0}[Vertex{data='B', weight=0}]",actual);
+//    }
+//
+//    @Test void neighborsTest(){
+//        graph.addNode("A");
+//        graph.addNode("B");
+//
+//        graph.addEdges("A","B",20);
+//
+//        assertEquals("[Vertex{data='B', weight=20}]",graph.getNeighbors("A").toString());
+//
+//    }
+//    @Test void getSizeTest(){
+//        graph.addNode("A");
+//        graph.addNode("B");
+//
+//        int size = graph.size();
+//
+//        assertEquals(2,size);
+//    }
 }

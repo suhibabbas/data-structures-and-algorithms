@@ -3,6 +3,8 @@
  */
 package graph;
 
+import java.util.ArrayList;
+
 public class App {
 
 
@@ -10,27 +12,53 @@ public class App {
 
         Graph graph = new Graph();
 
-        graph.addNode("A");
-        graph.addNode("B");
-        graph.addNode("C");
+        graph.addNode("Pandora");
+        graph.addNode("Arendelle");
+        graph.addNode("Metroville");
+        graph.addNode("Monstropolis");
+        graph.addNode("Naboo");
+        graph.addNode("Narnia");
 
-        graph.addEdges("A","C");
+        graph.addEdges("Pandora","Arendelle",150);
+        graph.addEdges("Pandora","Metroville",82);
+        graph.addEdges("Arendelle","Metroville",99);
+        graph.addEdges("Arendelle","Monstropolis",42);
+        graph.addEdges("Monstropolis","Metroville",105);
+        graph.addEdges("Naboo","Metroville",26);
+        graph.addEdges("Narnia","Metroville",37);
+        graph.addEdges("Narnia","Naboo",250);
+        graph.addEdges("Naboo","Monstropolis",73);
 
-        graph.addEdges("B","A",25);
-        graph.addEdges("C","B",30);
+        ArrayList<String> cities = new ArrayList<>();
+        cities.add("Metroville");
+        cities.add("Pandora");
+        System.out.println(businessTripCost(graph,cities));
+    }
 
-//        System.out.println(graph.getNode());
-        System.out.println(graph.getNodes());
-        System.out.println("");
+    public static String businessTripCost(Graph graph , ArrayList<String> cities){
 
-        System.out.println(graph.getNeighbors("A"));
-        System.out.println(graph.getNeighbors("B"));
-        System.out.println(graph.getNeighbors("C"));
-        System.out.println("");
+       int cost = 0;
+       for(int i = 0; i<cities.size() - 1 ; i++){
+           cost += graph.getWeight(cities.get(i),cities.get(i+1));
+       }
+       if(cost == 0 ){
+           return null;
+       }
+       return cost +"$";
+    }
 
-        System.out.println(graph.size());
+    public static void matrix(String[] nodes, String[][] array, Graph graph){
 
+        int index = 0;
+        for (String[] strArr: array
+        ) {
+            for(int i = 0 ; i< strArr.length;i++){
+                if(strArr[i].equals("t")){
+                    graph.addEdges(nodes[index],nodes[i]);
+                }
+            }
+            index++;
+        }
 
-//        System.out.println(graph.size(graph));
     }
 }

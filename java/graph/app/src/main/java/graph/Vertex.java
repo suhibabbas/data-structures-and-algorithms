@@ -16,12 +16,27 @@ public class Vertex {
         this.weight = weight;
     }
 
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
 
     @Override
     public String toString() {
         return "Vertex{" +
                 "data='" + data + '\'' +
-                ", weight=" + weight +
+//                ", weight=" + weight +
                 '}';
     }
 
