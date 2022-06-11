@@ -4,29 +4,30 @@
 package mergeSort;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
     @Test void appHasAGreeting() {
 
-        int[] arr1 = {20,18,12,8,5,-2};
-        int[] arr2 = {5,12,7,5,5,7};
-        int[] arr3 = {2,3,5,7,13,11};
-
-
-        int[] expected1 = {-2,5,8,12,18,20};
-        int[] expected2 = {5,5,5,7,7,12};
-        int[] expected3 = {2,3,5,7,11,13};
-
-
-       App.mergeSort(arr1,0,arr1.length);
-       assertArrayEquals(expected1,arr1);
-
-        App.mergeSort(arr2,0,arr2.length);
-        assertArrayEquals(expected2,arr2);
-
-        App.mergeSort(arr3,0,arr3.length);
-        assertArrayEquals(expected3,arr3);
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        arrayList.add(8);
+        arrayList.add(4);
+        arrayList.add(23);
+        arrayList.add(42);
+        arrayList.add(16);
+        arrayList.add(15);
+        ArrayList<Integer> arr1 = App.mergeSort(arrayList);
+        ArrayList<Integer> arr2 = new ArrayList<>();
+        arr2.add(4);
+        arr2.add(8);
+        arr2.add(15);
+        arr2.add(16);
+        arr2.add(23);
+        arr2.add(42);
+        assertEquals(arr1 , arr2);
 
 
     }

@@ -3,49 +3,77 @@
  */
 package mergeSort;
 
+import java.util.ArrayList;
+
 public class App {
     public static void main(String[] args) {
 
-        int[] intArray = { 8 , 4 , 23 , 42 , 16 , 15 };
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        arrayList.add(4);
+        arrayList.add(23);
+        arrayList.add(42);
+        arrayList.add(16);
+        arrayList.add(15);
 
-        mergeSort(intArray, 0, intArray.length);
+        System.out.println(mergeSort(arrayList));
 
-        for (int i = 0; i < intArray.length; i++) {
-            System.out.println(intArray[i]);
-        }
+
     }
 
-    public static void mergeSort(int[] input, int start, int end) {
+    public static ArrayList<Integer> mergeSort(ArrayList<Integer> arr){
+        int n = arr.size();
+        if(n>1) {
+            int mid = n / 2;
+            ArrayList<Integer> left = new ArrayList<>();
+            for (int i = 0; i < mid; i++) {
+                left.add(arr.get(i));
+            }
 
-        if (end - start < 2) {
-            return;
+            ArrayList<Integer> right = new ArrayList<>();
+            for (int i = mid; i < arr.size(); i++) {
+                right.add(arr.get(i));
+            }
+
+            mergeSort(left);
+            mergeSort(right);
+            Merge(left, right, arr);
         }
-
-        int mid = (start + end) / 2;
-        mergeSort(input, start, mid);
-        mergeSort(input, mid, end);
-        merge(input, start, mid, end);
+        System.out.println("Arr => " + arr);
+        return arr;
     }
 
-    // { 20, 35, -15, 7, 55, 1, -22 }
-    public static void merge(int[] input, int start, int mid, int end) {
 
-        if (input[mid - 1] <= input[mid]) {
-            return;
+    public static ArrayList<Integer> Merge(ArrayList<Integer> left , ArrayList<Integer> right , ArrayList<Integer> arr) {
+        int i = 0 ;
+        int j = 0 ;
+        int k = 0 ;
+
+        while (i<left.size() && j < right.size()){
+            if(left.get(i) < right.get(j))
+            {
+                arr.set(k , left.get(i));
+                i++;
+            }
+            else
+            {
+                arr.set(k , right.get(j));
+                j++;
+            }
+            k++;
         }
-
-        int i = start;
-        int j = mid;
-        int tempIndex = 0;
-
-        int[] temp = new int[end - start];
-        while (i < mid && j < end) {
-            temp[tempIndex++] = input[i] <= input[j] ? input[i++] : input[j++];
+        // Collect remaining elements
+        while(i < left.size())
+        {
+            arr.set(k , left.get(i));
+            i++;
+            k++;
         }
-
-        System.arraycopy(input, i, input, start + tempIndex, mid - i);
-        System.arraycopy(temp, 0, input, start, tempIndex);
-
-
+        while(j < right.size())
+        {
+            arr.set(k , right.get(j));
+            j++;
+            k++;
+        }
+        return arr ;
     }
 }
