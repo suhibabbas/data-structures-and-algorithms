@@ -7,6 +7,7 @@ import tree.intersection.data.Node;
 import tree.intersection.structure.HashMap;
 import tree.intersection.structure.TreeIntersection;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.Stack;
 
@@ -29,53 +30,33 @@ public class App {
         treeIntersection2.add(9);
         treeIntersection2.add(40);
 
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+
+
+        System.out.println(treeIntersection1.getInOrder());
+        hashMap = treeIntersection(treeIntersection1,treeIntersection2);
+        System.out.println(hashMap.keys());
+
+//        System.out.println(treeIntersection(treeIntersection1 , treeIntersection2));
+
+
     }
 
-    public static Set<String> treeIntersection(TreeIntersection<Integer> treeIntersection1 , TreeIntersection<Integer> treeIntersection2 ){
-        HashMap<String , Integer> hashtable = new HashMap<>();
-        Node<Integer> root =   treeIntersection1.getRoot();
-        Node<Integer>  root2 =   treeIntersection2.getRoot();
-        addInOrder(root , hashtable);
-        addInOrder(root2 , hashtable);
+    public static HashMap<Integer,Integer> treeIntersection(TreeIntersection<Integer> treeIntersection1, TreeIntersection<Integer> treeIntersection2){
+        HashMap<Integer,Integer> hashMap = new HashMap<>();
 
-        return findDuplicate(hashtable);
-
-    }
-
-    private static void addInOrder(Node<Integer> root , HashMap<String , Integer> hashtable) {
-
-        if (root == null) return;
-
-        Stack<Node> stack = new Stack<Node>();
-        Node current = root;
-
-        while (current != null || stack.size() > 0)
-        {
-
-            while (current !=  null)
-            {
-                stack.push(current);
-                current = current.getLeftNode();
+        for (int node1:treeIntersection1.getInOrder()
+             ) {
+            for (int node2: treeIntersection2.getInOrder()
+                 ) {
+                if(node1 == node2 ){
+                    hashMap.set(node1,node2);
+                }
             }
-
-            current = stack.pop();
-
-            if(hashtable.get(current.getData().toString()) == null)
-            {
-                hashtable.set(current.getData().toString(), 1);
-            }
-            else
-            {
-                hashtable.set(current.getData().toString(), hashtable.get(current.getData().toString())+1);
-            }
-
-            current = current.getRightNode();
         }
 
-    }
-    private static Set<String> findDuplicate(HashMap<String , Integer> hashMap){
-        Set<String> set = hashMap.findDuplicate();
-        return set ;
+        return hashMap;
+
     }
 
 }
