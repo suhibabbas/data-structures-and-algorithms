@@ -140,12 +140,10 @@ public class HashMap<k,v> {
                 }
                 head = head.getNext();
             }
-
         }
-
-        return set ;
-
+        return set;
     }
+
 
     @Override
     public String toString() {

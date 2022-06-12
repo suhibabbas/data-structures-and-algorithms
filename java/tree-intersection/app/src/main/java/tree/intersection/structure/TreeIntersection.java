@@ -3,6 +3,9 @@ package tree.intersection.structure;
 import tree.intersection.data.BinaryNode;
 import tree.intersection.data.Node;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class TreeIntersection<T extends Comparable<T>> {
 
     private Node<T> root;
@@ -73,6 +76,23 @@ public class TreeIntersection<T extends Comparable<T>> {
 
         inOrder(treeNode.getRightNode()); // right
     }
+    public Set<T> getInOrder(){
+        Set<T> dataList = new HashSet<>();
+        dataList = getInOrder(root,dataList);
+        return dataList;
+    }
+
+    private Set<T>  getInOrder(Node<T> node, Set<T> dataList){
+        if(node ==null){
+            return dataList;
+        }
+
+        getInOrder(node.getLeftNode(),dataList);
+        dataList.add(node.getData());
+        getInOrder(node.getRightNode(),dataList);
+
+        return dataList;
+    }
 
     private void preOrder(Node<T> treeNode) {
         if (treeNode == null) {
@@ -102,7 +122,6 @@ public class TreeIntersection<T extends Comparable<T>> {
         System.out.println(node.getData());
     }
 
-
     public boolean contains(T searchTerm) {
         root = containsHelper(searchTerm , root);
         if (root!= null)
@@ -121,8 +140,7 @@ public class TreeIntersection<T extends Comparable<T>> {
         return containsHelper(searchTerm , root.getRightNode());
     }
 
-    public T findMax()
-    {
+    public T findMax() {
         if (root == null)
             System.out.println("The node is empty");
 
